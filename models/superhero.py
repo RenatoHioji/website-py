@@ -7,6 +7,8 @@ class Superhero(db.Model):
     name = db.Column(db.String(100), nullable=False)
     moral = db.Column(db.String(100), nullable=True)
     history = db.Column(db.Text, nullable=True)
-
+    
+    user = relationship('User', back_populates='heroes')
+    
     def __repr__(self):
         return f'<Superhero {self.name}>'

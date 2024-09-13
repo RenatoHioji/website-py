@@ -1,15 +1,21 @@
 from models.db import db
 from models.superhero import Superhero
-from controllers.SuperheroController import routes
+from controllers.SuperheroController import SuperheroController
+from controllers.UserController import UserController
 from flask import Flask
 import os
+
+
 app = Flask(__name__, template_folder='views')
-routes.init_app(app)
+SuperheroController.init_app(app)
+UserController.init_app(app)
+app.config["SECRET_KEY"] = "secretnotthatsecret"
+app.config["PERMANENT_SESSIONLIFETIME"] = 3600
 
 dir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(dir, 'models/games.sqlite3')
+    os.path.join(dir, 'models/db.sqlite3')
 
     
 if __name__ == '__main__':
