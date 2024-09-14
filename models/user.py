@@ -6,7 +6,6 @@ class User(db.Model):
     username = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=True)
     
-    heroes = relationship('Hero', back_populates='user', cascade='all, delete-orphan')
 
     def __init__(self, username, password):
         self.username = username
