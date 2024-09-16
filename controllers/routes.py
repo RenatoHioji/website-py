@@ -3,12 +3,6 @@ from datetime import date
 from models.anime import Anime
 from models.db import db
 def init_app(app):
-        @app.before_request
-        def check_auth():
-            if request.path == '/' or request.path.startswith("/static"):
-                return
-            if "user_id" not in session:
-                return redirect(url_for("login"))
         @app.route("/")  
         def home(): 
             animes = Anime.query.all()

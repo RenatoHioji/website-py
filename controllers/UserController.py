@@ -4,6 +4,16 @@ from models.user import User
 from models.db import db
 class UserController():
    def init_app(app):
+        @app.before_request
+        def check_auth():
+            routes = ['login', 'caduser', 'home']
+            if request.endpoint in routes or request.path.startswith('/static'):
+                return
+            if request.path == '/' or request.path.startswith("/static"):
+                return
+            if "user_id" not in session:
+                return redirect(url_for("login"))
+            
         @app.route("/login", methods=["POST", "GET"])
         def login():
             if request.method == "POST":
