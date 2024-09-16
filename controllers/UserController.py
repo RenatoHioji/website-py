@@ -6,7 +6,7 @@ class UserController():
    def init_app(app):
         @app.before_request
         def check_auth():
-            routes = ['login', 'caduser', 'home']
+            routes = ['login', 'register', 'home']
             if request.endpoint in routes or request.path.startswith('/static'):
                 return
             if request.path == '/' or request.path.startswith("/static"):
