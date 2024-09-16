@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="main">
+    <h1>Adicionar anime à galeria</h1>
+    {% if error %}
+        <span style="color: rgb(136, 21, 21)"> {{error}} </span>
+    {% endif %}
+    <div class="form">
+        <form action="{{url_for('addAnime')}}" method="POST" class="form">
+            <label>Nome do Anime: </label>
+            <input type="text" name="nome">
+            <label>Ano do Anime: </label>
+            <input type="year" name="ano">
+            <input type="submit" value="Adicionar Anime" class="submit">
+        </form>
+        <a href="/" class="link voltar">Voltar</a>
+    </div>
+    
+
+</main>
+
+
+{% endblock content %}

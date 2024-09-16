@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="main">
+        <div class="animes">
+            {% for anime in animes %}
+                <div class="anime">
+                    <img src="{{url_for('static', filename=anime.imagem)}}" alt ="Imagem do Anime" class="imagem">
+                    <div class="texto">{{anime.nome}}</div>
+                    <div class="texto">{{anime.ano}}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="home-links">
+            <a href="{{ url_for('addAnime') }}" class="adicionarLink">Adicione um anime à Galeria</a>
+            <a href="{{ url_for('removeAnime') }}" class="removerLink">Remover um anime da Galeria</a>
+            <a href="{{ url_for('updateAnime') }}" class="updateLink">Atualizar um anime da Galeria</a>
+        </div>
+
+    </main>
+    
+{% endblock content%}

@@ -1,24 +1,9 @@
 from flask import Flask, request, jsonify, abort, render_template, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.user import User
-
+from models.db import db
 class UserController():
    def init_app(app):
-        @app.before_request
-        def check_auth():
-            routes = ["login", "register", "home"]
-            if request.path == '/' or request.path.startswith("/static"):
-                return
-            if request.endpoint in routes or request.path.startswith("/static"):
-                return
-            if "user_id" not in session:
-                return redirect(url_for("login"))
-        
-        @app.route("/my_heroes", methods=["GET"])
-        def my_heroes():
-            heroes = User.query.filter_by(username='hero_master').first()
-            return jsonify({'heroes': heroes}) 
-
         @app.route("/login", methods=["POST", "GET"])
         def login():
             if request.method == "POST":
@@ -26,10 +11,12 @@ class UserController():
                 password = request.form["password"]
                 user = User.query.filter_by(username=email).first()
                 if user and check_password_hash(user.password, password):
+                    print('user correct')
                     session['user_id'] = user.id
                     session['email'] = user.username
                     return redirect(url_for("home"))
                 else:
+                    print('user incorrect')
                     return redirect(url_for("login"))
             return render_template("forms/login.html")
 

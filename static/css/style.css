@@ -1,0 +1,115 @@
+
+.main{
+    display: flex;
+    padding: 80px 96px;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.animes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 16px;
+    grid-column-gap: 16px;
+}
+.anime{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    max-height: 300px;
+}
+.imagem{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    max-height: 252px;
+}
+
+.link {
+    text-decoration: none;
+
+}
+.link:hover{
+    color: #1f1485;
+}
+.text{
+    display: flex;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 450px;
+}
+.submit{
+    color: #ffffff;
+    background-color: #028d19;
+    border: 1px solid #011604;
+
+}
+.submit:hover{
+    background-color: #15501f;
+}
+.voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(136, 21, 21);
+    border: 1px solid #011604;
+    color: #ffffff;
+
+}
+.voltar:hover{
+    background-color: rgb(87, 7, 7);
+    color: #ffffff;
+}
+.removerLink{
+    min-width: 250px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(136, 21, 21);
+    color: #ffffff;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.removerLink:hover{
+    background-color: rgb(87, 7, 7);
+    color: #ffffff;
+}
+.adicionarLink{
+    text-align: center;
+
+    min-width: 250px;
+    text-decoration: none;
+    background-color: #028d19;
+    color: #ffffff;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.adicionarLink:hover{
+    background-color: #15501f;
+    color: #ffffff;
+}
+
+
+.updateLink{
+    text-align: center;
+
+    min-width: 250px;
+    text-decoration: none;
+    background-color: #005194;
+    color: #ffffff;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.updateLink:hover{
+    background-color: rgb(7, 35, 61);
+    color: #ffffff;
+}
