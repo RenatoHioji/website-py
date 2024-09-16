@@ -6,7 +6,10 @@ def init_app(app):
         @app.route("/")  
         def home(): 
             animes = Anime.query.all()
-            return render_template('index.html', animes = animes)
+            #Paginação
+            page = request.args.get('page', 1, type=int)
+            render_page = Anime.query.paginate(page=page, per_page=6)
+            return render_template('index.html', animes = render_page)
         
         @app.route("/addAnime", methods=['GET', 'POST'])
         def addAnime():
